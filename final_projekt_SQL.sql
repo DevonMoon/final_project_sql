@@ -11,7 +11,7 @@ price_measure_to datetime NOT NULL,
 payroll_year int(11) DEFAULT NULL,
 payroll_quarter int(11) DEFAULT NULL,
 product_price int(4) DEFAULT NULL,
-p5roduct_id int(11) NOT NULL,
+product_id int(11) NOT NULL,
 product_category int(11) NOT NULl
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16
 ; 
