@@ -38,6 +38,23 @@ ALTER TABLE czechia_payroll_industry_branch CONVERT TO CHARACTER SET utf16;
  * SQL Error [1833] [HY000]: (conn=7) Cannot change column 'code': used in a foreign key constraint 'fk_czechia_payroll_industry_branch' of table 'engeto-2022-10.czechia_payroll'
  */
 
+-- Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
+SELECT 
+payroll_year,
+industry_branch,
+-- value z czechia_payroll - doplnit
+-- mozna i value type code - doplnit
+FROM t_damian_ebner_project_sql_primary_final
+ORDER BY industry_branch_code, payroll_year 
+WHERE value_type_code = 5958;
+SELECT AVG(value) AS average_amount
+FROM czechia_payroll
+WHERE condition;
+SELECT DISTINCT 
+payroll_year,
+industry_branch_code 
+FROM czechia_payroll 
+ORDER BY payroll_year, industry_branch_code
 
 
 
