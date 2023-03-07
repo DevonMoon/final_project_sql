@@ -16,9 +16,27 @@ product_category int(11) NOT NULl
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16
 ; 
 
+SELECT 
+t_final.industry_branch_code,
+czechia_payroll_industry_branch.code
+FROM t_damian_ebner_project_sql_primary_final AS t_final
+JOIN czechia_payroll_industry_branch ON t_final.industry_branch_code = czechia_payroll_industry_branch.code;
 
 
 
+/*
+ * SQL Error [1267] [HY000]: (conn=7) Illegal mix of collations (utf16_general_ci,IMPLICIT) and (utf8mb3_czech_ci,IMPLICIT) for operation '='
+ * 
+ */
+
+
+ALTER TABLE t_damian_ebner_project_SQL_primary_final CONVERT TO CHARACTER SET utf16;
+
+ALTER TABLE czechia_payroll_industry_branch CONVERT TO CHARACTER SET utf16;
+
+/*
+ * SQL Error [1833] [HY000]: (conn=7) Cannot change column 'code': used in a foreign key constraint 'fk_czechia_payroll_industry_branch' of table 'engeto-2022-10.czechia_payroll'
+ */
 
 
 
